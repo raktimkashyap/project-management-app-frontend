@@ -14,7 +14,7 @@ function PublicRoutes() {
     <Routes>
       <Route exact path="/sign-up" element={<SignUp />} />
       <Route exact path="/sign-in" element={<SignIn />} />
-      <Route path="/" element={<Navigate replace to="/sign-in" />} />
+      <Route path="*" element={<Navigate replace to="/sign-in" />} />
     </Routes>
   );
 }
@@ -44,14 +44,12 @@ export default function AppRoutes(props) {
   useEffect(() => {
     if (!authenticated) {
       dispatch(authenticate());
-      console.log("called authenticate!!");
     }
   }, [dispatch, authenticated]);
 
   return (
     <React.Fragment>
-      {!authenticated && <PublicRoutes />}
-      {authenticated && <ProtectedRoutes />}
+      {authenticated ? <ProtectedRoutes /> : <PublicRoutes />}
     </React.Fragment>
   );
 }
