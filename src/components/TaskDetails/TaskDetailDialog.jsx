@@ -1,11 +1,10 @@
-import { CloseOutlined, DateRangeOutlined } from "@mui/icons-material";
+import { DateRangeOutlined } from "@mui/icons-material";
 import {
   Button,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
-  IconButton,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
@@ -27,9 +26,6 @@ export default function TaskDetailDialog(props) {
         <Typography variant="h6" sx={{ flex: 1 }}>
           Task
         </Typography>
-        {/* <IconButton size="small" onClick={handleClose} edge="end">
-          <CloseOutlined color="action" />
-        </IconButton> */}
       </DialogTitle>
       <DialogContent dividers>
         {!editMode && (
