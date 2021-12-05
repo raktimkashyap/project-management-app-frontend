@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "../features/authSlice";
 import AppLayout from "../layouts/AppLayout";
 import Today from "../views/today";
+import Project from "../views/projects";
 
 function PublicRoutes() {
   return (
@@ -25,6 +26,7 @@ function ProtectedRoutes() {
         <Route path="/" element={<Authenticated />}>
           <Route exact path="/all-tasks" element={<TasksPage />} />
           <Route exact path="/today" element={<Today />} />
+          <Route exact path="/:projectId" element={<Project />} />
           <Route path="/" element={<Navigate replace to="/all-tasks" />} />
           <Route
             path="/sign-in"

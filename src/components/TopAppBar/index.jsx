@@ -29,7 +29,7 @@ export default function TopAppBar() {
     <AppBar elevation={0} color="secondary">
       <Toolbar>
         <Typography variant="h6" sx={{ flex: 1 }}>
-          Task Management App
+          Tasky
         </Typography>
         <Button onClick={handleSignOut}>LogOut</Button>
         <IconButton

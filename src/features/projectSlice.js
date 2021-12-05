@@ -21,8 +21,19 @@ export const getAllProjects = createAsyncThunk(
   }
 );
 
+export const getSingleProject = createAsyncThunk(
+  "project/getSingleProject",
+  async (projectId) => {
+    const response = await axios.get(
+      endpoints.project.getSingleProject(projectId)
+    );
+    return response.data;
+  }
+);
+
 const initialState = {
   allProjects: [],
+  projectTasks: [],
 };
 
 const projectSlice = createSlice({
@@ -35,6 +46,9 @@ const projectSlice = createSlice({
     },
     [createProject.fulfilled]: (state, { payload }) => {
       state.allProjects = [...state.allProjects, payload.project];
+    },
+    [getSingleProject.fulfilled]: (state, { payload }) => {
+      state.projectTasks = payload.tasks;
     },
   },
 });

@@ -16,6 +16,7 @@ const endpoints = {
   project: {
     getAllProject: baseUrl + "/project",
     createProject: baseUrl + `/project`,
+    getSingleProject: (projectId) => baseUrl + `/project/${projectId}`,
   },
 };
 
